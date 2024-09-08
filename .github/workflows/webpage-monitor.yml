@@ -24,16 +24,12 @@ jobs:
           GMAIL_USERNAME: ${{ secrets.GMAIL_USERNAME }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
         run: python monitor.py
-      - name: Upload new hash
-        uses: actions/upload-artifact@v3
-        with:
-          name: webpage-hash
-          path: webpage_content.txt  # Uploads the updated hash file
-
-      - name: Download previous hash
-        id: download_hash
-        uses: actions/download-artifact@v3
-        with:
-          name: webpage-hash
-          path: ./  # Downloads the hash file to the current directory
-        continue-on-error: true  # Continue even if the artifact does not exist
+        
+      - name: Commit and push changes
+        if: success() && steps.run_script.outputs.changed == 'true'
+        run: |
+          git config --global user.name 'github-actions'
+          git config --global user.email 'actions@github.com'
+          git add page_hash.txt
+          git commit -m 'Update page hash'
+          git push
