@@ -27,6 +27,7 @@ def filter_content(content, patterns):
 # Function to send email alert
 def send_email_alert(subject, body):
     try:
+        print(f"Sending email to {gmail_user}")
         msg = MIMEMultipart()
         msg['From'] = gmail_user
         msg['To'] = "punchyycovet@gmail.com"
@@ -46,6 +47,7 @@ def send_email_alert(subject, body):
 # Function to fetch webpage content
 def fetch_webpage_content(url):
     try:
+        print(f"Fetching content from {url}")
         response = requests.get(url)
         response.raise_for_status()  # Raise an error if the request failed
         return response.text
@@ -55,21 +57,27 @@ def fetch_webpage_content(url):
 
 # Function to check if the webpage has changed
 def check_for_changes():
+    print("Starting change detection")
+
     new_content = fetch_webpage_content(url)
     if new_content is None:
+        print("No content fetched. Exiting.")
         return
 
     # Filter out unwanted patterns
     new_content_filtered = filter_content(new_content, IGNORE_PATTERNS)
+    print("Fetched and filtered new content")
 
     # Check if the content file exists, indicating a previous run
     if os.path.exists(content_file):
+        print("Previous content found. Reading...")
         # Read the last saved content
         with open(content_file, 'r') as file:
             old_content = file.read()
 
         # Filter out unwanted patterns from old content
         old_content_filtered = filter_content(old_content, IGNORE_PATTERNS)
+        print("Filtered old content")
 
         # Compare the filtered old and new content
         if new_content_filtered != old_content_filtered:
@@ -81,12 +89,15 @@ def check_for_changes():
 
             # Send an email with the specific changes
             send_email_alert("Webpage Change Detected", f"The webpage at {url} has changed.\n\nChanges:\n{diff_text}")
+        else:
+            print("No significant changes detected.")
     else:
         print("No previous content found. Saving initial content.")
 
     # Save the new content, whether it's the first run or after detecting a change
     with open(content_file, 'w') as file:
         file.write(new_content)
+    print("New content saved.")
 
 # Run the check
 check_for_changes()
