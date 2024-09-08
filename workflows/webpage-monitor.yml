@@ -41,3 +41,11 @@ jobs:
         with:
           name: webpage-hash
           path: webpage_content.txt  # Uploads the updated hash file
+
+      - name: Download previous hash
+        id: download_hash
+        uses: actions/download-artifact@v3
+        with:
+          name: webpage-hash
+          path: ./  # Downloads the hash file to the current directory
+        continue-on-error: true  # Continue even if the artifact does not exist
