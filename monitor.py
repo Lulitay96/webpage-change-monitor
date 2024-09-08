@@ -10,7 +10,7 @@ gmail_user = os.getenv('GMAIL_USERNAME')
 gmail_password = os.getenv('GMAIL_APP_PASSWORD')
 
 # URL to monitor
-url = "http://example.com"  # Replace with the URL you want to monitor
+url = "https://museum-tickets.nintendo.com/en/calendar"
 # File to store the last fetched content of the webpage
 content_file = "webpage_content.txt"
 
@@ -19,7 +19,7 @@ def send_email_alert(subject, body):
     try:
         msg = MIMEMultipart()
         msg['From'] = gmail_user
-        msg['To'] = "recipient@example.com"  # Replace with the recipient's email
+        msg['To'] = "punchyycovet@gmail.com"
         msg['Subject'] = subject
 
         msg.attach(MIMEText(body, 'plain'))
