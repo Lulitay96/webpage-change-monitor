@@ -3,6 +3,10 @@ on:
   schedule:
     - cron: '*/2 * * * *'  # Runs every 5 minutes
   workflow_dispatch:  # Allows manual triggering of the workflow
+
+permissions:
+  contents: write  # Grants write access to repository contents
+  
 jobs:
   check-page:
     runs-on: ubuntu-latest
@@ -39,3 +43,5 @@ jobs:
           git add webpage_content.txt
           git commit -m 'Update page hash'
           git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
