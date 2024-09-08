@@ -1,6 +1,6 @@
 import os
 import requests
-from bs4 import BeautifulSoup
+import difflib
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
@@ -58,7 +58,13 @@ def check_for_changes():
         # Compare the old and new content
         if new_content != old_content:
             print("Change detected on the webpage.")
-            send_email_alert("Webpage Change Detected", f"The webpage at {url} has changed.")
+            
+            # Find differences between old and new content
+            diff = difflib.unified_diff(old_content.splitlines(), new_content.splitlines(), lineterm='')
+            diff_text = '\n'.join(diff)
+
+            # Send an email with the specific changes
+            send_email_alert("Webpage Change Detected", f"The webpage at {url} has changed.\n\nChanges:\n{diff_text}")
     else:
         print("No previous content found. Saving initial content.")
 
