@@ -4,6 +4,7 @@ import difflib
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+import re
 
 # Access credentials from environment variables
 gmail_user = os.getenv('GMAIL_USERNAME')
@@ -13,6 +14,15 @@ gmail_password = os.getenv('GMAIL_APP_PASSWORD')
 url = "https://museum-tickets.nintendo.com/en/calendar"
 # File to store the last fetched content of the webpage
 content_file = "webpage_content.txt"
+
+# Patterns to ignore in the content
+IGNORE_PATTERNS = [r'<meta name="csrf-token" content="[^"]*">']
+
+# Function to filter out unwanted patterns from content
+def filter_content(content, patterns):
+    for pattern in patterns:
+        content = re.sub(pattern, '<ignored>', content)
+    return content
 
 # Function to send email alert
 def send_email_alert(subject, body):
@@ -49,18 +59,24 @@ def check_for_changes():
     if new_content is None:
         return
 
+    # Filter out unwanted patterns
+    new_content_filtered = filter_content(new_content, IGNORE_PATTERNS)
+
     # Check if the content file exists, indicating a previous run
     if os.path.exists(content_file):
         # Read the last saved content
         with open(content_file, 'r') as file:
             old_content = file.read()
 
-        # Compare the old and new content
-        if new_content != old_content:
+        # Filter out unwanted patterns from old content
+        old_content_filtered = filter_content(old_content, IGNORE_PATTERNS)
+
+        # Compare the filtered old and new content
+        if new_content_filtered != old_content_filtered:
             print("Change detected on the webpage.")
             
-            # Find differences between old and new content
-            diff = difflib.unified_diff(old_content.splitlines(), new_content.splitlines(), lineterm='')
+            # Find differences between filtered old and new content
+            diff = difflib.unified_diff(old_content_filtered.splitlines(), new_content_filtered.splitlines(), lineterm='')
             diff_text = '\n'.join(diff)
 
             # Send an email with the specific changes
