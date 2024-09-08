@@ -30,6 +30,9 @@ jobs:
           path: ./  # Downloads the hash file to the current directory
         continue-on-error: true  # Continue even if the artifact does not exist
 
+      - name: List directory contents after download
+        run: ls -la
+
       - name: Run monitor script
         env:
           GMAIL_USERNAME: ${{ secrets.GMAIL_USERNAME }}
