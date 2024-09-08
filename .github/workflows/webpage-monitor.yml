@@ -1,46 +1,38 @@
 name: Webpage Change Monitor
-
 on:
   schedule:
-    - cron: '*/2 * * * *'  # Runs every 15 minutes
-
+    - cron: '*/2 * * * *'  # Runs every 5 minutes
 jobs:
   check-page:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
           python-version: '3.x'
-
+          
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install requests beautifulsoup4
-
-      - name: Download previous content
-        run: |
-          if [ -f webpage_content.txt ]; then
-            echo "Previous content file found."
-          else
-            echo "No previous content file found."
-          fi
 
       - name: Run monitor script
         env:
           GMAIL_USERNAME: ${{ secrets.GMAIL_USERNAME }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
         run: python monitor.py
+      - name: Upload new hash
+        uses: actions/upload-artifact@v3
+        with:
+          name: webpage-hash
+          path: webpage_content.txt  # Uploads the updated hash file
 
-      - name: Commit and push changes
-        if: success()  # Only commit and push if the script ran successfully
-        run: |
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
-          git add webpage_content.txt
-          git commit -m "Update webpage content"
-          git push origin main
+      - name: Download previous hash
+        id: download_hash
+        uses: actions/download-artifact@v3
+        with:
+          name: webpage-hash
+          path: ./  # Downloads the hash file to the current directory
+        continue-on-error: true  # Continue even if the artifact does not exist
