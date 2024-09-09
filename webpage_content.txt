@@ -11,7 +11,7 @@
 <!-- common -->
 <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,500,700&display=swap" rel="stylesheet">
 
-<meta name="csrf-token" content="6ch3kzSuuVIz9GnzYRpuvTSHjYfKreDFzHAs453z">
+<meta name="csrf-token" content="i6dScrJBdcgEkrwN1uAu5MyFEjLtGlCBssp2Zdeb">
 
   
   <!-- Google Tag Manager -->
