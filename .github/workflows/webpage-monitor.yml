@@ -1,8 +1,7 @@
 name: Webpage Change Monitor
 on:
   schedule:
-    - cron: '*/10 * * * *'  # Runs every 5 minutes
-  workflow_dispatch:  # Allows manual triggering of the workflow
+    - cron: '*/4 * * * *'  # Runs every 5 minutes
 
 permissions:
   contents: write  # Grants write access to repository contents
