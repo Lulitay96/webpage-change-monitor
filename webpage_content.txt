@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-<title>Calendar | Nintendo Museum Ticketing Website | Nintendo</title>
+<title>Currently Under Maintenance | Nintendo Museum Ticketing Website | Nintendo</title>
 <meta name="description" content="">
 <meta name="format-detection" content="telephone=no,address=no,email=no">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0">
@@ -11,15 +11,15 @@
 <!-- common -->
 <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,500,700&display=swap" rel="stylesheet">
 
-<meta name="csrf-token" content="vCK4M4CMAVCWYqn5fxDCkZ47WXXgrK6fUNPqnMHF">
+<meta name="csrf-token" content="MkuUzkmOW3EbcAHKeVMrScIliRBm0XGpQkMbPAMQ">
 
-  
+    
   <!-- Google Tag Manager -->
   <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-NVPD62"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <script src="https://alps.cdn.nintendo.net/gtm/v1/js/gtm_login.js"></script>
+  <script src="https://www.nintendo.com/jp/common/js/gap/gtm_guest.js"></script>
   <!-- End Google Tag Manager -->
-
+  
   <link rel="preload" as="style" href="https://museum-tickets.nintendo.com/build/assets/index-5bb30ce4.css" /><link rel="preload" as="style" href="https://museum-tickets.nintendo.com/build/assets/app-92f3f55c.css" /><link rel="preload" as="style" href="https://museum-tickets.nintendo.com/build/assets/app-81c3ea11.css" /><link rel="modulepreload" href="https://museum-tickets.nintendo.com/build/assets/app-4ea47932.js" /><link rel="modulepreload" href="https://museum-tickets.nintendo.com/build/assets/index-b60dc13e.js" /><link rel="modulepreload" href="https://museum-tickets.nintendo.com/build/assets/useUtility-22cf5944.js" /><link rel="modulepreload" href="https://museum-tickets.nintendo.com/build/assets/useNotification-43a1e009.js" /><link rel="modulepreload" href="https://museum-tickets.nintendo.com/build/assets/useLang-befdbabb.js" /><link rel="modulepreload" href="https://museum-tickets.nintendo.com/build/assets/useAuth-219003a6.js" /><link rel="modulepreload" href="https://museum-tickets.nintendo.com/build/assets/useUrl-bedf7781.js" /><link rel="modulepreload" href="https://museum-tickets.nintendo.com/build/assets/runtime-core.esm-bundler-937f1c12.js" /><link rel="modulepreload" href="https://museum-tickets.nintendo.com/build/assets/useDevice-e289d634.js" /><link rel="modulepreload" href="https://museum-tickets.nintendo.com/build/assets/_commonjsHelpers-de833af9.js" /><link rel="modulepreload" href="https://museum-tickets.nintendo.com/build/assets/useTicket-42dd7903.js" /><link rel="modulepreload" href="https://museum-tickets.nintendo.com/build/assets/dayjs.min-0adc5a14.js" /><link rel="modulepreload" href="https://museum-tickets.nintendo.com/build/assets/axios-9cbf0d09.js" /><link rel="stylesheet" href="https://museum-tickets.nintendo.com/build/assets/index-5bb30ce4.css" /><link rel="stylesheet" href="https://museum-tickets.nintendo.com/build/assets/app-92f3f55c.css" /><link rel="stylesheet" href="https://museum-tickets.nintendo.com/build/assets/app-81c3ea11.css" /><script type="module" src="https://museum-tickets.nintendo.com/build/assets/app-4ea47932.js"></script><meta id="state" content="">
 <meta id="session_state" content="">
 
@@ -34,7 +34,7 @@
   <body
     class="
              no-loading  
-       
+       no-menu  
     ">
           <header id="header" class="">
   <h1 id="header_logo"><a href="https://museum-tickets.nintendo.com/en"><img src="/images/logo.svg" alt="Nintendo MUSEUM" /></a></h1>
@@ -83,63 +83,23 @@
         <div id="alps_loading" class="p-alps__loader active"><div class="circle"></div></div>
     <div id="app">
       <main>
-          <section class="x-card c-section  p-schedule " v-auto-grid-fit>
+          <section class="x-card c-section  c-section--expand " v-auto-grid-fit>
   <div class="auto-resize">
     
     
     
-     <h2 class="c-title"><budoux-ja>Schedule a Visit</budoux-ja></h2> 
+     <h2 class="c-title"><budoux-ja>The website is currently under maintenance.</budoux-ja></h2> 
     
     
     
-    <div class="p-schedule__info">
-      <p class="p-schedule__description">
-        Tickets grant entry for a specific date and time. 
-        You can enter each drawing only once. 
-        Drawings occur once per month. 
-      </p>
-            <div class="p-schedule__table">
-        <table class="c-table">
-          <thead class="c-table__header">
-            <tr>
-              <th>Ticket Availability</th>
-            </tr>
-          </thead>
-          <tbody class="c-table__body">
-            
-                        
-                        <tr>
-              <td>
-                <span class="p-schedule__table--status -lottery">Drawing</span>
-                                2024-December<br />
-                                drawings are open
-                <div>until 2024-September-30 at 23:59.</div>
-                <div class="d-flex justify-center align-center">
-                  （<img src="/images/icon_calendar_diamond_primary.svg" class="d-inline-block w-1_5" width="14" height="14">：Accepting entries）
-                </div>
-              </td>
-            </tr>
-                      </tbody>
-        </table>
-      </div>
-          </div>
-
-    
-    <calendar-select
-      :enabled-ticket-sale-period-list="[{&quot;ticketId&quot;:1,&quot;ticketSalePeriodId&quot;:36,&quot;salePeriodType&quot;:3,&quot;admissionStartDate&quot;:&quot;2024-10-02&quot;,&quot;admissionEndDate&quot;:&quot;2024-11-30&quot;,&quot;applicationStartAt&quot;:&quot;2024-09-11T05:00:00.000000Z&quot;,&quot;originalApplicationStartDate&quot;:&quot;2024-09-01&quot;,&quot;applicationEndAt&quot;:&quot;2024-11-30T14:59:59.999999Z&quot;,&quot;originalApplicationEndDate&quot;:&quot;2024-11-30&quot;,&quot;annotation&quot;:&quot;\u30b0\u30e9\u30f3\u30c9\u30aa\u30fc\u30d7\u30f3&quot;,&quot;isValid&quot;:true},{&quot;ticketId&quot;:1,&quot;ticketSalePeriodId&quot;:43,&quot;salePeriodType&quot;:2,&quot;admissionStartDate&quot;:&quot;2024-12-01&quot;,&quot;admissionEndDate&quot;:&quot;2024-12-31&quot;,&quot;applicationStartAt&quot;:&quot;2024-08-31T15:00:00.000000Z&quot;,&quot;originalApplicationStartDate&quot;:&quot;2024-09-01&quot;,&quot;applicationEndAt&quot;:&quot;2024-09-30T14:59:59.999999Z&quot;,&quot;originalApplicationEndDate&quot;:&quot;2024-09-30&quot;,&quot;annotation&quot;:null,&quot;isValid&quot;:true}]"
-      :cart-selected-data="null"
-    ></calendar-select>
-
-    
-    <ticket-select
-      :number-of-holdable-tickets-par-day="8"
-      :cart-selected-data="null"
-      :display-stock-status="{
-        inStock: 1,
-        lowStock: 2,
-        outOfStock: 3
-      }"
-    ></ticket-select>
+    The Nintendo Museum ticketing website is currently unavailable due to maintenance.<br />
+Maintenance is scheduled for the following period.<br />
+<br />
+Maintenance period:<br />
+2024-September-10 (Tuesday) 16:00 - 18:00 (JST)<br />
+*The period may be extended.<br />
+<br />
+We apologize for any inconvenience this may cause and thank you for your understanding.
   </div>
 </section>                  <notification-error-modal></notification-error-modal>
           <notification-login-modal></notification-login-modal>
